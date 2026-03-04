@@ -1,8 +1,8 @@
-import express, { Request, Response } from "express";
+import express from "express";
 
 export const app = express();
 
-app.get("/", (req: Request, res: Response) => {
+app.get("/", (req, res) => {
   res.send("Hello from Express + TypeScript!");
 });
 
