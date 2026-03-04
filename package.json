@@ -6,8 +6,8 @@
   "type": "commonjs",
   "scripts": {
     "dev": "nodemon --watch 'src/**/*.ts' --exec 'ts-node' src/index.ts",
-    "build:dev": "rm -rf dist && tsc",
-    "build": "prisma generate && prisma migrate deploy && rm -rf dist && tsc",
+    "build": "rm -rf dist && tsc",
+    "postinstall": "prisma generate",
     "start": "node dist/index.js"
   },
   "keywords": [],
