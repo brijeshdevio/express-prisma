@@ -7,7 +7,7 @@
   "scripts": {
     "dev": "nodemon --watch 'src/**/*.ts' --exec 'ts-node' src/index.ts",
     "build:dev": "rm -rf dist && tsc",
-    "build": "prisma generate && prisma migrate deploy",
+    "build": "prisma generate && prisma migrate deploy && rm -rf dist && tsc",
     "start": "node dist/index.js"
   },
   "keywords": [],
