@@ -1,4 +1,10 @@
-import { app } from "./app";
+import express from "express";
+
+const app = express();
+
+app.get("/", (req, res) => {
+  res.send("Hello from Express + TypeScript!");
+});
 
 const PORT = process.env.PORT || 3000;
 if (process.env.NODE_ENV === "development") {
