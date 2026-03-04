@@ -1,10 +1,12 @@
-import "dotenv/config";
-import { app } from "./app";
+import express from "express";
 
-const isDev = process.env.NODE_ENV === "development";
-if (isDev) {
-  app.listen(3000, () => {
-    console.log("Server is running on http://localhost:3000");
-  });
-}
-export default app;
+const app = express();
+const PORT = process.env.PORT || 3000;
+
+app.get("/", (req, res) => {
+  res.send("Hello from Express + TypeScript!");
+});
+
+app.listen(PORT, () => {
+  console.log(`Server running on http://localhost:${PORT}`);
+});
