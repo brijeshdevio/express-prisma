@@ -1,15 +1,17 @@
 {
   "compilerOptions": {
-    "typeRoots": ["./node_modules/@types", "./src/types"],
-    "target": "ES2020",
-    "module": "commonjs",
-    "moduleResolution": "node",
+    "target": "ESNext",
+    "module": "ESNext",
+    "typeRoots": ["./node_modules/@types"],
     "outDir": "dist",
     "rootDir": "src",
     "strict": true,
-    "esModuleInterop": true,
     "forceConsistentCasingInFileNames": true,
-    "skipLibCheck": true
+    "moduleResolution": "bundler", // Best for Bun/modern bundlers
+    "allowSyntheticDefaultImports": true, // Fixes the Express import error
+    "esModuleInterop": true, // Also helps with CommonJS/ESM interop
+    "skipLibCheck": true,
+    "types": ["bun"] // Keeps Bun globals available
   },
   "include": ["src"]
 }
