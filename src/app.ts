@@ -1,9 +1,8 @@
 import express from "express";
-import type { Request, Response, Application } from "express";
 import { prisma } from "./db";
 import { Prisma } from "./generated/prisma/client";
 
-export const app: Application = express();
+export const app = express();
 
 const userData: Prisma.UserCreateInput[] = [
   {
@@ -51,7 +50,7 @@ const userData: Prisma.UserCreateInput[] = [
   },
 ];
 
-app.get("/create", async (req: Request, res: Response) => {
+app.get("/create", async (req, res) => {
   for (const u of userData) {
     await prisma.user.create({
       data: u,
@@ -60,20 +59,20 @@ app.get("/create", async (req: Request, res: Response) => {
   res.send("OK");
 });
 
-app.get("/users", async (req: Request, res: Response) => {
+app.get("/users", async (req, res) => {
   const users = await prisma.user.findMany();
   res.status(200).json(users);
 });
 
-app.get("/delete", async (req: Request, res: Response) => {
+app.get("/delete", async (req, res) => {
   await prisma.user.deleteMany();
   res.send("OK");
 });
 
-app.get("/health", (req: Request, res: Response) => {
+app.get("/health", (req, res) => {
   res.send("OK");
 });
 
-app.get("/", (req: Request, res: Response) => {
+app.get("/", (req, res) => {
   res.send("OK");
 });
