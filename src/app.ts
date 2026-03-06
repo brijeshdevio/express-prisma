@@ -1,9 +1,9 @@
 import express from "express";
-import type { Request, Response } from "express";
+import type { Request, Response, Application } from "express";
 import { prisma } from "./db";
 import { Prisma } from "./generated/prisma/client";
 
-export const app = express();
+export const app: Application = express();
 
 const userData: Prisma.UserCreateInput[] = [
   {
